@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 require('../models/user.model');
 
-
 const serviceSchema = new Schema({
     title: {
         type: String,
@@ -28,7 +27,7 @@ const serviceSchema = new Schema({
         required: 'El coste del servicio es obligatorio. Si necesitas ayuda con los precios, visita nuestra tabla de equivalencias'
     },
     /*IDs de las palabras clave con las que se filtrará.Fichero de constantes (.js) mejor , con module exports. Y lo cargo en el res.locals */
-    keyWords:[{
+    keyWords: [{
         type: String
     }]
 });

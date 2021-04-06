@@ -1,21 +1,20 @@
 [
-    {
-        "email": "example@example.com",
-        "password": "ñlksadklfadklsafklfadñkl",
-        "nickname": "anaurri",
-        "bio": "Hola soy jardinera lfsdklsdklsdklsadasd",
-        "phoneNumber": 123456789,
-        "avatar": "images/default-avatar.png",
-        "balance": 40
-      },
-      {
-        "email": "example2@example.com",
-        "password": "ñlksadklfadklsafklfadñkl",
-        "nickname": "silvia",
-        "bio": "Hola soy cocinera lfsdklsdklsdklsadasd",
-        "phoneNumber": 987654321,
-        "avatar": "images/default-avatar.png",
-        "balance": 30
-        }
-
+  {
+    "email": "example@example.com",
+    "password": "ñlksadklfadklsafklfadñkl",
+    "nickname": "anaurri",
+    "bio": "Hola soy jardinera lfsdklsdklsdklsadasd",
+    "phoneNumber": 123456789,
+    "avatar": "images/default-avatar.png",
+    "balance": 40
+  },
+  {
+    "email": "example2@example.com",
+    "password": "ñlksadklfadklsafklfadñkl",
+    "nickname": "silvia",
+    "bio": "Hola soy cocinera lfsdklsdklsdklsadasd",
+    "phoneNumber": 987654321,
+    "avatar": "images/default-avatar.png",
+    "balance": 30
+  }
 ]

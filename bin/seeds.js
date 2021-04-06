@@ -25,5 +25,3 @@ mongoose.connection.once('open', () => {
     .catch(error => console.error(error))
     .then(() => process.exit(0))
 })
-
-

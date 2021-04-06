@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css"
     integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
 
-
 <div class="container mb-5 pb-5">
     {{#if services }}
     <div class="col-md-7 mx-auto">
@@ -16,14 +15,20 @@
                         <form action="/offers/filter" method="post">
 
                             {{!-- <div class="row mb-4 mt-3 justify-content-center">
-                                <input type="search" name="keyWord" class="form-control rounded" placeholder="Busca un servicio" aria-label="Search" aria-describedby="search-addon" style="width: 20rem;" />
-                                <a class="btn btn-sm btn-outline-info" style="width: 2.5rem;" href="/offers"><i class="fa fa-search"></i></a>
+                                <input type="search" name="keyWord" class="form-control rounded"
+                                    placeholder="Busca un servicio" aria-label="Search" aria-describedby="search-addon"
+                                    style="width: 20rem;" />
+                                <a class="btn btn-sm btn-outline-info" style="width: 2.5rem;" href="/offers"><i
+                                        class="fa fa-search"></i></a>
                             </div> --}}
                             <div class="row my-4 justify-content-center">
                                 <div class="col-md-6">
                                     <div class="input-group">
-                                        <input type="search" name="keyWord" class="form-control" placeholder="Busca un servicio" aria-label="Search" aria-describedby="search-addon" />
-                                        <button class="btn btn-outline-info" type="submit"><i class="fa fa-search"></i></button>
+                                        <input type="search" name="keyWord" class="form-control"
+                                            placeholder="Busca un servicio" aria-label="Search"
+                                            aria-describedby="search-addon" />
+                                        <button class="btn btn-outline-info" type="submit"><i
+                                                class="fa fa-search"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -35,7 +40,8 @@
                         <div class="bg-white card mb-4 order-list shadow-sm">
                             <div class="gold-members p-4">
 
-                                <img class="float-end mr-4 ml-4" src={{ service.owner.avatar }} alt="Imagen del usuario">
+                                <img class="float-end mr-4 ml-4" src={{ service.owner.avatar }}
+                                    alt="Imagen del usuario">
                                 <h5 class="mb-3 text-info">{{ service.title }}</h5>
                                 <div class="media">
                                     <div class="media-body">
@@ -47,7 +53,8 @@
                                             {{#if service.owner.phoneNumber }}
                                             <div class="col">
                                                 <div class="form-outline">
-                                                    <p class="text-muted f-w-400">Contacto: {{ service.owner.phoneNumber }}</p>
+                                                    <p class="text-muted f-w-400">Contacto: {{ service.owner.phoneNumber
+                                                        }}</p>
                                                 </div>
                                             </div>
                                             {{/if }}
@@ -59,13 +66,18 @@
                                         </div>
                                         <div class="float-end">
                                             {{#itsMe ../currentUser.id service.owner.id }}
-                                            <a class="btn btn-sm btn-outline-info" href="/service/{{service.id}}/delete">Borrar</a>
+                                            <a class="btn btn-sm btn-outline-info"
+                                                href="/service/{{service.id}}/delete">Borrar</a>
                                             {{else}}
-                                            <a class="btn btn-sm btn-outline-info" href="/users/{{service.owner.id}}">Ver Perfil</a>
-                                            <button type="submit" class="btn btn-sm btn-info text-white">Solicitar</button>
+                                            <a class="btn btn-sm btn-outline-info"
+                                                href="/users/{{service.owner.id}}">Ver Perfil</a>
+                                            <button type="submit"
+                                                class="btn btn-sm btn-info text-white">Solicitar</button>
                                             {{/itsMe}}
                                         </div>
-                                        <p class="mb-0 text-black text-info pt-2 fw-bo"><span class="text-black font-weight-bold">Precio:</span> {{ service.antCoins  }} AntCoins</p>
+                                        <p class="mb-0 text-black text-info pt-2 fw-bo"><span
+                                                class="text-black font-weight-bold">Precio:</span> {{ service.antCoins
+                                            }} AntCoins</p>
 
                                     </div>
                                 </div>

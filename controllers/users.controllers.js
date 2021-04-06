@@ -59,38 +59,38 @@ module.exports.logout = (req, res, next) => {
   res.redirect('/login');
 };
 
-module.exports.userProfile = (req, res, next) => { 
+module.exports.userProfile = (req, res, next) => {
   Service.find({
     owner: res.locals.currentUser.id
   })
-  .then(services => {
-    if (services) {
-      Deal.find({$or: [{interestedUser: res.locals.currentUser.id}, {serviceOwner: res.locals.currentUser.id}]  })
-      .populate('service')
-      .populate('serviceOwner')
-      .populate('interestedUser')
-      .sort({"_id":-1})
-      .then(deals => {
-        if(deals){
-          Review.find({
-            idUser: res.locals.currentUser.id
-            }).populate("idReviewer")
-            .then(reviews => {
-              res.render('users/profile', {
-                services: services,
-                reviews: reviews ,
-                deals: deals
-              });
-            })
-            .catch(error => next(error))
-          }
-       })
-      .catch(error => next(error))
-    } else {
-      next(createError(404, 'Service not found'))
-    }
-  })
-  .catch(error => next(error))
+    .then(services => {
+      if (services) {
+        Deal.find({ $or: [{ interestedUser: res.locals.currentUser.id }, { serviceOwner: res.locals.currentUser.id }] })
+          .populate('service')
+          .populate('serviceOwner')
+          .populate('interestedUser')
+          .sort({ "_id": -1 })
+          .then(deals => {
+            if (deals) {
+              Review.find({
+                idUser: res.locals.currentUser.id
+              }).populate("idReviewer")
+                .then(reviews => {
+                  res.render('users/profile', {
+                    services: services,
+                    reviews: reviews,
+                    deals: deals
+                  });
+                })
+                .catch(error => next(error))
+            }
+          })
+          .catch(error => next(error))
+      } else {
+        next(createError(404, 'Service not found'))
+      }
+    })
+    .catch(error => next(error))
 
 };
 
@@ -103,7 +103,7 @@ module.exports.updateProfile = (req, res, next) => {
       errors: errors,
     });
   }
-  const  {
+  const {
     password,
     passwordMatch,
     name,
@@ -111,7 +111,7 @@ module.exports.updateProfile = (req, res, next) => {
     phoneNumber,
     nickname
   } = req.body;
-  
+
   if (password && password !== passwordMatch) {
     renderWithErrors({
       passwordMatch: 'Passwords do not match'
@@ -140,10 +140,10 @@ module.exports.updateProfile = (req, res, next) => {
       .then(user => {
         req.login(user, error => {
           if (error) next(error);
-          else{
+          else {
             res.redirect('/profile');
             console.log(user);
-          } 
+          }
         });
       }).catch(error => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -160,16 +160,16 @@ module.exports.visitOtherProfile = (req, res, next) => {
   User.findById(userId)
     .then(user => {
       if (user) {
-        Deal.find({$or: [{interestedUser: userId}, {serviceOwner: userId}]  })
+        Deal.find({ $or: [{ interestedUser: userId }, { serviceOwner: userId }] })
           .populate('service')
           .populate('serviceOwner')
           .populate('interestedUser')
-          .sort({"_id":-1})
+          .sort({ "_id": -1 })
           .then(deals => {
             if (deals) {
               Review.find({
                 idUser: userId
-                }).populate("idReviewer") /*Tengo el id del reviewer en el modelo Review, pero quiero tener el nickname:
+              }).populate("idReviewer") /*Tengo el id del reviewer en el modelo Review, pero quiero tener el nickname:
                                            el populateme devuelve todo el objeto de ese ID , o sea un User. Cuando lo trate en hbs , tengo que recordar que 
                                            idReviwer ya no es un ID , es un objeto de tipo User. Si quiero acceder al id , sería review.idReviewer.id
                                            si quiero aceder al nickname: review.idReviewer.nickname */

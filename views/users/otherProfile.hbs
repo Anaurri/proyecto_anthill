@@ -1,58 +1,59 @@
 <div class="page-content page-container" id="page-content">
-    <div class="row container d-flex justify-content-center">
-      <div class="col-md-8">
-        <h3 class="text-info "><img src="../images/minilogo.png" class="img-thumbnail bg-transparent border-0" alt="logo image">  Hola {{ currentUser.nickname }}</h3>
-          <div class="card user-card-full">
-            <div class="row m-l-0 m-r-0">
-              <div class="col-sm-4 bg-warning user-profile">
-                <div class="card-block text-center text-white">
-                  
-                   <h4 class="m-b-20 p-b-5 b-b-default f-w-600 text-white ">{{ user.nickname }}</h4>
-                    <div class="m-b-25">
-                      <img class="img-fluid" src={{ user.avatar }} alt="Imagen del usuario">
-                    </div>
-                  </div>
+  <div class="row container d-flex justify-content-center">
+    <div class="col-md-8">
+      <h3 class="text-info "><img src="../images/minilogo.png" class="img-thumbnail bg-transparent border-0"
+          alt="logo image"> Hola {{ currentUser.nickname }}</h3>
+      <div class="card user-card-full">
+        <div class="row m-l-0 m-r-0">
+          <div class="col-sm-4 bg-warning user-profile">
+            <div class="card-block text-center text-white">
+
+              <h4 class="m-b-20 p-b-5 b-b-default f-w-600 text-white ">{{ user.nickname }}</h4>
+              <div class="m-b-25">
+                <img class="img-fluid" src={{ user.avatar }} alt="Imagen del usuario">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="card-block">
+              <h4 class="m-b-20 p-b-5 b-b-default f-w-600 text-warning mt-3">Perfil de {{ user.nickname }}</h4>
+              <div class="row">
+                <div class="col-sm-6">
+                  <p class="m-b-10 f-w-600">Email</p>
+                  <h6 class="text-muted f-w-400">{{ user.email }}</h6>
                 </div>
-                <div class="col-sm-8">
-                  <div class="card-block">
-                    <h4 class="m-b-20 p-b-5 b-b-default f-w-600 text-warning mt-3">Perfil de {{ user.nickname }}</h4>
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <p class="m-b-10 f-w-600">Email</p>
-                          <h6 class="text-muted f-w-400">{{ user.email }}</h6>
-                        </div>
-                        <div class="col-sm-6">
-                          <p class="m-b-10 f-w-600">Teléfono de contacto</p>
-                          <h6 class="text-muted f-w-400">{{ user.phoneNumber }}</h6>
-                        </div>
-                      </div>
-
-                      <hr>
-
-                      <p class="text-muted font-size-sm">{{ user.bio }}</p>
-
-                  </div>
+                <div class="col-sm-6">
+                  <p class="m-b-10 f-w-600">Teléfono de contacto</p>
+                  <h6 class="text-muted f-w-400">{{ user.phoneNumber }}</h6>
                 </div>
               </div>
+
+              <hr>
+
+              <p class="text-muted font-size-sm">{{ user.bio }}</p>
+
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
+</div>
 </div>
 
 <hr>
-                       {{!-- Historial de tratos --}}
+{{!-- Historial de tratos --}}
 
-                       
 <h3 class="text-info text-center m-5">Historial de tratos de {{ user.nickname }}</h3>
 {{#each deals as | deal | }}
 <div class="page-content page-container" id="page-content">
   <div>
     <div class="row container d-flex justify-content-center">
-      <div class="card mb-3" style="max-width: 600px;height:250px"> 
+      <div class="card mb-3" style="max-width: 600px;height:250px">
         <div class="row g-0">
-          <div class="col-md-6" style="height:250px;background-image:url({{ deal.serviceOwner.avatar }});background-repeat:no-repeat;background-size:cover;background-position:center">
+          <div class="col-md-6"
+            style="height:250px;background-image:url({{ deal.serviceOwner.avatar }});background-repeat:no-repeat;background-size:cover;background-position:center">
             {{!-- <img src="{{ deal.serviceOwner.avatar }}" class="img-fluid" alt="Imagen del usuario"> --}}
           </div>
           <div class="col-md-6">
@@ -61,7 +62,6 @@
               <p class="card-text">{{ deal.service.description }}</p>
               <p class="card-text"><small class="text-muted">{{ deal.service.antCoins }} Antcoins</small></p>
               <div class="d-flex justify-content-end">{{ deal.status }}</div>
-              </div>
             </div>
           </div>
         </div>
@@ -69,33 +69,32 @@
     </div>
   </div>
 </div>
+</div>
 {{/each }}
 <div class="page-content page-container pb-5" id="page-content">
   <div class="row container justify-content-center">
-        <hr class="my-4">
-        <h5 class="card-title m-4 text-center text-warning">Reseñas</h5>
-        {{#each reviews as | review | }}
-          <div class="card m-3" style="max-width: 500px;">
-              <div class="card-body">
-                  <p class="card-text">{{ review.comment }}</p>
-                  <a class="card-link text-info text-decoration-none" href="/users/{{review.idReviewer.id}}">
-                    Autor: {{ review.idReviewer.nickname }}
-                  </a>
-              </div>
-          </div>
-        {{/each }}
+    <hr class="my-4">
+    <h5 class="card-title m-4 text-center text-warning">Reseñas</h5>
+    {{#each reviews as | review | }}
+    <div class="card m-3" style="max-width: 500px;">
+      <div class="card-body">
+        <p class="card-text">{{ review.comment }}</p>
+        <a class="card-link text-info text-decoration-none" href="/users/{{review.idReviewer.id}}">
+          Autor: {{ review.idReviewer.nickname }}
+        </a>
+      </div>
+    </div>
+    {{/each }}
+  </div>
+  <div class="row container justify-content-center">
+    <div class="m-3 mb-5 text-center" style="max-width: 500px;">
+      <form action="/users/{{user.id}}/comments" method="post">
+        <div class="card-body">
+          <textarea class="form-control" name="comment" value="{{ review.comment }}"></textarea>
+          <button type="submit" class="btn btn-warning text-white center my-3">Comentar</button>
         </div>
-        <div class="row container justify-content-center">
-            <div class="m-3 mb-5 text-center" style="max-width: 500px;">
-              <form action="/users/{{user.id}}/comments" method="post">
-                  <div class="card-body">
-                  <textarea class="form-control" name="comment" value="{{ review.comment }}"></textarea>
-                  <button type="submit" class="btn btn-warning text-white center my-3">Comentar</button>
-                  </div>
-              </form>
-            </div>
-        
+      </form>
+    </div>
+
   </div>
 </div>
-
- 

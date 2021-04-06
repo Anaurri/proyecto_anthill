@@ -39,10 +39,10 @@ const userSchema = new Schema({
     type: String,
     default: `https://res.cloudinary.com/anthillweb/image/upload/v1613921232/users-avatars/Flik_gyce2o.png`
   }
-  },
-{
-  timestamps: true
-});
+},
+  {
+    timestamps: true
+  });
 
 userSchema.pre('save', function (next) {
 
