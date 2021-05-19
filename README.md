@@ -2,7 +2,7 @@ ANTHILL: Aplicación de intercambio de habilidades y trabajos circular. Usando p
 
 Creado por Silvia Guerola Ardid y Ana Urrialde Gómez como proyecto de aplicación ExpressJS con Handlebars para el bootcamp de Desarrollo Web en la escuela Ironhack:
 
-            -------------- https://anthill-project.herokuapp.com/inicio -------------------
+                   https://anthill-project.herokuapp.com/inicio 
 
 
 
